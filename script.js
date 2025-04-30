@@ -93,3 +93,18 @@ function exibirCarros(lista) {
 }
 
 window.onload = () => exibirCarros(carros);
+
+
+document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const nome = document.getElementById('nome').value;
+  const email = document.getElementById('email').value;
+  const telefone = document.getElementById('telefone').value;
+
+  const mensagem = `Olá! Meu nome é ${nome}.%0AEmail: ${email}%0ATelefone: ${telefone}`;
+  const numeroWhatsApp = '5512996368891'; // Coloque o número do dono do site aqui (com DDD e sem espaços)
+
+  const url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+  window.open(url, '_blank');
+});
