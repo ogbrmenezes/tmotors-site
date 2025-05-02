@@ -14,7 +14,7 @@ const carros = [
     ano: 2017,
     km: 118000,
     combustivel: "Flex",
-    imagem: "imagens/tcrosnova.jpeg"
+    imagem: "imagens/tcros/tcrosnova.jpeg"
   },
   {
     id: 2,

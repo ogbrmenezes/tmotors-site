@@ -1,85 +1,170 @@
+body {
+  background-color: #111;
+  margin: 0;
+  padding: 0;
+}
+
+
+
 .carro-detalhes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 2rem;
-    background-color: #111;
-    color: white;
-  }
-  
-  .carro-galeria {
-    flex: 2;
-  }
-  
-  .carro-galeria img {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .miniaturas {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-  
-  .miniaturas img {
-    width: 80px;
-    height: 60px;
-    object-fit: cover;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .carro-info-extra {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1.5rem;
-    background: white;
-    color: black;
-    border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #111;
+  color: white;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carro-galeria {
+  flex: 2;
+  max-width: 600px;
+}
+
+.carousel {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.carousel img#img-principal {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.carousel .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.carousel .arrow.left {
+  left: 10px;
+}
+
+.carousel .arrow.right {
+  right: 10px;
+}
+
+.miniaturas {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.miniaturas img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: transform 0.2s, border 0.2s;
+}
+
+.miniaturas img:hover {
+  transform: scale(1.05);
+}
+
+.miniaturas img.ativa {
+  border: 2px solid #fff;
+  transform: scale(1.1);
+}
+
+.carro-info-extra {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  background: white;
+  color: black;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.carro-info-extra div {
+  text-align: center;
+  flex: 1;
+}
+
+.carro-proposta {
+  flex: 1;
+  background: #eee;
+  padding: 2rem;
+  border-radius: 10px;
+  color: black;
+  max-width: 400px;
+}
+
+.carro-proposta h2 {
+  color: #333;
+}
+
+.carro-proposta form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.carro-proposta input,
+.carro-proposta textarea {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.carro-proposta button {
+  padding: 0.8rem;
+  background: black;
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .carro-detalhes {
+    flex-direction: column;
     padding: 1rem;
   }
-  
-  .carro-info-extra div {
-    text-align: center;
-    flex: 1;
-  }
-  
+
+  .carro-galeria,
   .carro-proposta {
-    flex: 1;
-    background: #eee;
-    padding: 2rem;
-    border-radius: 10px;
-    color: black;
+    width: 100%;
+    max-width: 100%;
   }
-  
-  .carro-proposta h2 {
-    color: #333;
-  }
-  
-  .carro-proposta form {
-    display: flex;
+
+  .carro-info-extra {
     flex-direction: column;
     gap: 1rem;
   }
-  
-  .carro-proposta input,
-  .carro-proposta textarea {
-    padding: 0.8rem;
-    font-size: 1rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+
+  .carro-info-extra div {
+    margin-bottom: 1rem;
+    text-align: center;
   }
-  
-  .carro-proposta button {
-    padding: 0.8rem;
-    background: black;
-    color: white;
-    border: none;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
+
+  .miniaturas {
+    justify-content: center;
   }
-  
+
+  .carro-proposta {
+    margin-top: 1rem;
+    padding: 1.5rem;
+  }
+}

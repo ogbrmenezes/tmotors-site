@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="carro.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
 </head>
 <body>
   <header class="header">
@@ -30,18 +29,29 @@
 
   <div class="carro-detalhes">
     <div class="carro-galeria">
-      <img id="img-principal" src="imagens/tcrosnova.jpeg" alt="Imagem principal do carro" />
-      <div id="galeria" class="miniaturas"></div>
+      <div class="carousel">
+        <button class="arrow left" onclick="voltarImagem()">‹</button>
+        <img id="img-principal" src="imagens/tcros/tcrosnova.jpeg" alt="Imagem principal do carro" />
+        <button class="arrow right" onclick="avancarImagem()">›</button>
+      </div>
+
+      <div id="galeria" class="miniaturas">
+        <img src="imagens/tcros/tcrosnova.jpeg" onclick="exibirImagem(0)" />
+        <img src="imagens/tcros/tcros2.jpeg" onclick="exibirImagem(1)" />
+        <img src="imagens/tcros/tcros3.jpeg" onclick="exibirImagem(2)" />
+        <img src="imagens/tcros/tcros4.jpeg" onclick="exibirImagem(3)" />
+      </div>
+
       <div class="carro-info-extra">
-        <div><strong>Ano</strong><p id="carro-ano"></p></div>
-        <div><strong>Câmbio</strong><p id="carro-cambio"></p></div>
-        <div><strong>Combustível</strong><p id="carro-combustivel"></p></div>
-        <div><strong>Km</strong><p id="carro-km"></p></div>
+        <div><strong>Ano</strong><p>2024</p></div>
+        <div><strong>Câmbio</strong><p>Automático</p></div>
+        <div><strong>Combustível</strong><p>Flex</p></div>
+        <div><strong>Km</strong><p>1.200 km</p></div>
       </div>
     </div>
-  
+
     <div class="carro-proposta">
-      <h2 id="carro-preco"></h2>
+      <h2>R$ 132.990</h2>
       <form>
         <input type="text" placeholder="Nome" required />
         <input type="email" placeholder="Email" required />
@@ -53,13 +63,8 @@
       </form>
     </div>
   </div>
-  
 
- <!-- Primeiro arquivo de script -->
-<script src="script.js"></script>
-
-<!-- Segundo arquivo de script -->
-<script src="carro.js"></script>
-
+  <script src="carros.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
