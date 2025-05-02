@@ -37,25 +37,20 @@ document.addEventListener("DOMContentLoaded", function () {
     formulario.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      // Dados do usuário
       const nome = document.getElementById("nome").value;
       const email = document.getElementById("email").value;
       const telefone = document.getElementById("telefone").value;
       const mensagem = document.getElementById("mensagem").value;
 
-      // Nome do carro (ajuste a classe conforme seu HTML)
-      const nomeCarro = document.querySelector(".carro-nome")?.textContent || "o veículo";
+      // Dados do carro da página (ajuste se os seletores mudarem)
+      const ano = document.querySelector(".carro-info-extra div:nth-child(1) p")?.textContent || "";
+      const cambio = document.querySelector(".carro-info-extra div:nth-child(2) p")?.textContent || "";
+      const combustivel = document.querySelector(".carro-info-extra div:nth-child(3) p")?.textContent || "";
+      const km = document.querySelector(".carro-info-extra div:nth-child(4) p")?.textContent || "";
 
-      // Dados do carro
-      const infoCarro = document.querySelectorAll(".carro-info-extra p");
-      const ano = infoCarro[0]?.textContent || "";
-      const cambio = infoCarro[1]?.textContent || "";
-      const combustivel = infoCarro[2]?.textContent || "";
-      const km = infoCarro[3]?.textContent || "";
+      const emailTexto = email ? `📧 *Email:* ${email}\n` : "";
 
-      const imagemURL = "https://drive.google.com/uc?export=view&id=1HOMArooejyrf4RNBN3rmHkIU57vr-gBE";
-
-      const texto = `Olá. Eu vim através do seu site e tenho interesse no carro *${nomeCarro}*. Seguem os dados abaixo:\n\n📷 *Imagem:* ${imagemURL}\n🚗 *Ano:* ${ano}\n⚙️ *Câmbio:* ${cambio}\n⛽ *Combustível:* ${combustivel}\n📏 *Km:* ${km}\n\n👤 *Nome:* ${nome}\n📧 *Email:* ${email}\n📞 *Telefone:* ${telefone}\n💬 *Mensagem:* ${mensagem}`;
+      const texto = `Olá. Eu vim através do seu site e tenho interesse no carro. Seguem meus dados:\n\n👤 *Nome:* ${nome}\n${emailTexto}📞 *Telefone:* ${telefone}\n💬 *Mensagem:* ${mensagem}\n\n📌 *Dados do veículo:*\n📅 *Ano:* ${ano}\n⚙️ *Câmbio:* ${cambio}\n⛽ *Combustível:* ${combustivel}\n📍 *KM:* ${km}`;
 
       const numero = "5511962105759";
       const url = `https://web.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(texto)}`;
