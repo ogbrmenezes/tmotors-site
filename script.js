@@ -17,28 +17,28 @@ const carros = [
     imagem: "imagens/tcros/tcrosnova.jpeg"
   },
   {
-    id: 2,
-    nome: "BMW 320i",
-    marca: "BMW",
-    modelo: "320i",
-    preco: 189000,
-    tipo: "novo",
-    ano: 2022,
-    km: 0,
-    combustivel: "Gasolina",
-    imagem: "imagens/bmw320i.jpg"
-  },
-  {
-    id: 3,
+    id: 1,
     nome: "T-Cross",
     marca: "Volkswagen",
     modelo: "tcross",
-    preco: 119000,
+    preco: 114890,
     tipo: "seminovo",
-    ano: 2018,
-    km: 98000,
+    ano: 2017,
+    km: 118000,
     combustivel: "Flex",
-    imagem: "imagens/tcrosnova.jpeg"
+    imagem: "imagens/tcros/tcrosnova.jpeg"
+  },
+  {
+    id: 1,
+    nome: "T-Cross",
+    marca: "Volkswagen",
+    modelo: "tcross",
+    preco: 114890,
+    tipo: "seminovo",
+    ano: 2017,
+    km: 118000,
+    combustivel: "Flex",
+    imagem: "imagens/tcros/tcrosnova.jpeg"
   }
 ];
 
@@ -95,16 +95,54 @@ function exibirCarros(lista) {
 window.onload = () => exibirCarros(carros);
 
 
-document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  const formulario = document.getElementById("formulario");
 
-  const nome = document.getElementById('nome').value;
-  const email = document.getElementById('email').value;
-  const telefone = document.getElementById('telefone').value;
+  if (formulario) {
+    formulario.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-  const mensagem = `Olá! Meu nome é ${nome}.%0AEmail: ${email}%0ATelefone: ${telefone}`;
-  const numeroWhatsApp = '5512996368891'; // Coloque o número do dono do site aqui (com DDD e sem espaços)
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+      const telefone = document.getElementById("telefone").value;
+      const mensagem = document.getElementById("mensagem").value;
+      const promocoes = document.getElementById("promocoes").checked ? "Sim" : "Não";
 
-  const url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
-  window.open(url, '_blank');
+      const imagemID = "1HOMArooejyrf4RNBN3rmHkIU57vr-gBE";
+      const imagemURL = `https://drive.google.com/uc?export=view&id=${imagemID}`;
+
+      const texto = `*Proposta de Veículo:*\n\n📷 ${imagemURL}\n\n👤 *Nome:* ${nome}\n📧 *Email:* ${email}\n📞 *Telefone:* ${telefone}\n💬 *Mensagem:* ${mensagem}\n📰 *Aceita promoções:* ${promocoes}`;
+
+      const numero = "5511962105759";
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+
+      window.open(url, "_blank");
+    });
+  } else {
+    console.error("Formulário não encontrado!");
+  }
 });
+
+
+  document.querySelector("form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const marca = document.querySelector('input[placeholder="Marca do Veículo"]').value;
+    const modelo = document.querySelector('input[placeholder="Modelo do Veículo"]').value;
+    const versao = document.querySelector('input[placeholder="Versão do Veículo"]').value;
+    const ano = document.querySelector('input[placeholder="Ano do Veículo"]').value;
+    const km = document.querySelector('input[placeholder="KM do Veículo"]').value;
+    const valor = document.querySelector('input[placeholder="Valor Desejado"]').value;
+    const nome = document.querySelector('input[placeholder="Seu Nome"]').value;
+    const email = document.querySelector('input[placeholder="Seu Email"]').value;
+    const telefone = document.querySelector('input[placeholder="Telefone"]').value;
+
+    const texto = `*Proposta de Venda de Veículo:*\n\n🚗 *Marca:* ${marca}\n📘 *Modelo:* ${modelo}\n📄 *Versão:* ${versao}\n📆 *Ano:* ${ano}\n🛣️ *KM:* ${km}\n💰 *Valor Desejado:* ${valor}\n\n👤 *Nome:* ${nome}\n📧 *Email:* ${email}\n📞 *Telefone:* ${telefone}`;
+
+    const numero = "5511962105759";
+    const url = `https://web.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(texto)}`;
+
+    // Força o WhatsApp Web na mesma aba
+    window.location.href = url;
+  });
+

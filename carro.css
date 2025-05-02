@@ -168,3 +168,27 @@ body {
     padding: 1.5rem;
   }
 }
+ 
+
+.carro-detalhes {
+  display: flex;
+  flex-wrap: wrap; /* permite quebra de linha */
+  gap: 20px;
+  justify-content: center;
+  padding: 10px;
+}
+
+.carro-galeria,
+.carro-proposta {
+  flex: 1 1 100%; /* faz ocupar 100% em telas pequenas */
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+/* Em telas maiores, volta ao layout lado a lado */
+@media (min-width: 768px) {
+  .carro-galeria,
+  .carro-proposta {
+    flex: 1 1 45%;
+  }
+}

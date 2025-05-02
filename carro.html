@@ -49,22 +49,20 @@
         <div><strong>Km</strong><p>1.200 km</p></div>
       </div>
     </div>
-
-    <div class="carro-proposta">
+    <div class="carro-proposta" id="proposta">
       <h2>R$ 132.990</h2>
-      <form>
-        <input type="text" placeholder="Nome" required />
-        <input type="email" placeholder="Email" required />
-        <input type="tel" placeholder="Telefone" required />
-        <textarea placeholder="Mensagem" required></textarea>
-        <label><input type="checkbox" /> Aceito receber promoções</label>
-        <div class="recaptcha">[INSIRA O RECAPTCHA AQUI]</div>
+      <form id="formulario">
+        <input type="text" id="nome" placeholder="Nome" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="tel" id="telefone" placeholder="Telefone" required />
+        <textarea id="mensagem" placeholder="Mensagem" required></textarea>
         <button type="submit">ENVIAR PROPOSTA</button>
       </form>
-    </div>
-  </div>
+      
 
+  <!-- Seus scripts devem vir depois do conteúdo HTML -->
   <script src="carros.js"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
